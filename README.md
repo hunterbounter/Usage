@@ -67,7 +67,6 @@ docker run -d -p 443:443 --name openvas openvas-docker
 cd hunterbounter-nuclei-docker
 docker build -t nuclei-docker .
 docker run -it --rm nuclei-docker
-
 ```
 
 ### OWASP ZAP
@@ -76,7 +75,6 @@ docker run -it --rm nuclei-docker
 cd hunterbounter-zap-docker
 docker build -t zap-docker .
 docker run -p 8080:8080 -i zap-docker zap.sh
-
 ```
 ### MobSF
 
@@ -84,7 +82,6 @@ docker run -p 8080:8080 -i zap-docker zap.sh
 cd hunterbounter-mobsf-docker
 docker build -t mobsf-docker .
 docker run -p 8000:8000 mobsf-docker
-
 ```
 
 ## Web Panel and Backend Setup
