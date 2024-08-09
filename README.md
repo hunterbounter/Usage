@@ -44,29 +44,30 @@ For each tool, navigate to the respective directory and build the Docker contain
 ### Web Panel (web-panel-go)
 ```
 cd web-panel-go
-docker build -t web-panel-go .
-docker run -d -p 8081:8081 --name web-panel-go web-panel-go
+cd cmd/hunterbounter-panel
+go build . 
+./web-panel-go
 ```
 
 ### Backend API (backend-api)
 ```
 cd backend-api
 docker build -t backend-api .
-docker run -d -p 8001:8001 --name backend-api backend-api
+docker run -d -e ENDPOINT=yourendpoint -p 8001:8001 --name backend-api backend-api
 ```
 
 ### OpenVAS
 ```
 cd hunterbounter-openvas-docker
 docker build -t openvas-docker .
-docker run -d -p 443:443 --name openvas openvas-docker
+docker run -d -e ENDPOINT=yourendpoint -p 443:443 --name openvas openvas-docker
 ```
 ### Nuclei
 
 ```
 cd hunterbounter-nuclei-docker
 docker build -t nuclei-docker .
-docker run -it --rm nuclei-docker
+docker run -it -e ENDPOINT=yourendpoint --rm nuclei-docker
 ```
 
 ### OWASP ZAP
@@ -74,14 +75,14 @@ docker run -it --rm nuclei-docker
 ```
 cd hunterbounter-zap-docker
 docker build -t zap-docker .
-docker run -p 8080:8080 -i zap-docker zap.sh
+docker run  -e ENDPOINT=yourendpoint -p 8080:8080 -i zap-docker zap.sh
 ```
 ### MobSF
 
 ```
 cd hunterbounter-mobsf-docker
 docker build -t mobsf-docker .
-docker run -p 8000:8000 mobsf-docker
+docker run -e ENDPOINT=yourendpoint -p 8000:8000 mobsf-docker
 ```
 
 ## Web Panel and Backend Setup
